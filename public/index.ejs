@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    ********************************************************************************
+    *                                   COMPATIBILITY                              *
+    ********************************************************************************
+    -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+   ********************************************************************************
+   *                                   DESCRIPTION                                *
+   ********************************************************************************
+   -->
+    <title>X-Team WebRTC</title>
+    <meta name="description" content="">
+    <!--
+    ********************************************************************************
+    *                                   FAVICON                                    *
+    ********************************************************************************
+    -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css" type="text/css">
+</head>
+<body>
+    <header>
+        <h1>Simple 1 on 1 Video Chat</h1>
+    </header>
+    <% include partials/send.ejs %>
+    <% include partials/receive.ejs %>
+    <% include partials/chat.ejs %>
+    <footer>
+        <ul>
+            <li>
+                <a href="https://github.com/priologic/easyrtc" target="_blank">Official EasyRTC Example</a>
+            </li>
+            <li>
+                <a href="https://github.com/socketio/socket.io/tree/master/examples/chat" target="_blank">Official Socket.io
+            Example</a>
+            </li>
+            <li>
+                <a href="https://github.com/Thoughtscript/socket_RTC" target="_blank">GitHub</a>
+            </li>
+        </ul>
+    </footer>
+</body>
+
+<% include partials/dependencies.ejs %>
+<script>
+  var v = new Video();
+  v.initializeConnection();
+  document.getElementById('sendBtn').addEventListener('click', function () {
+    v.call();
+  });
+</script>
+<script>
+  var c = new Chat("https://localhost:<%= port %>"),
+    textVal = function (el) {
+      return document.getElementById(el).value;
+    };
+  document.getElementById('initChatBtn').addEventListener('click', function () {
+    var n = textVal('chatName');
+    if (c.check(n)) {
+      c.initializeSocket('msgWrapper', n);
+      document.getElementById('initChatBtn').disabled = true;
+    }
+  });
+  document.getElementById('chatBtn').addEventListener('click', function () {
+    var n = textVal('chatName'),
+      m = textVal('chatMsg');
+    if (c.check(n) && c.check(m)) c.sendMessage(m);
+  });
+</script>
+</html>

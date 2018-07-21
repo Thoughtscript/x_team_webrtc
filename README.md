@@ -15,14 +15,14 @@ Server-side:
 
 Client-side:
 ```
-    (1) Use **Adapter.js** for shimming (WebRTC recommended).
-    (2) Use the supplied **EasyRTC** API libraries.
-    (3) Use the supplied **Socket.io** examples to build a chat system!
+    (1) Use Adapter.js for shimming (WebRTC recommended).
+    (2) Use the supplied EasyRTC API libraries.
+    (3) Use the supplied Socket.io examples to build a chat system!
 ```
 
 # Shout Outs
 
-1. ![EasyRTC](https://github.com/priologic/easyrtc/tree/master/server_example)
+1. <a href="https://github.com/priologic/easyrtc/tree/master/server_example">**EasyRTC**</a>
 
 # Licensing
 
