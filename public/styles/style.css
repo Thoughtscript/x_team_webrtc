@@ -1,48 +1,162 @@
-@import url('https://fonts.googleapis.com/css?family=Exo|Maven+Pro|Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
-body, html {
+body, html, footer, header, .wrapper {
     position: absolute;
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
+
+    font-family: 'Lato', monospace;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 18px;
+    color: black;
+
 }
 
 header {
-    background-color: transparent;
-    position: fixed;
-    width: 100%;
-    height: 80px;
+    height: 160px;
     opacity: .8;
-    border: 1px solid white;
-    text-transform: lowercase;
-    letter-spacing: 4px;
-    font-family: 'Source Code Pro', monospace;
-    font-weight: 400;
-    font-size: 16px;
+    border-bottom: 1px solid black;
+    box-shadow: 2px 5px 19px black;
+    border-radius: 2px;
+    z-index: 999;
 }
 
 header > h1 {
     position: relative;
     left: 8%;
-    color: white;
-    font-family: 'Source Code Pro', monospace;
     font-weight: 500;
+    top:5%;
     font-size: 31px;
+    width: 25%;
+    text-decoration:underline;
+}
+
+.wrapper {
+    top: 160px;
+    height: 1700px;
+    z-index:-999;
+    opacity:.9;
+    background: #2C3E50;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.sendWrapper, .receiveWrapper {
+    width: 49%;
+    top: 40px;
+    display: inline-block;
+    position: absolute;
+}
+
+.receiveWrapper {
+    left: 51%;
+}
+
+video {
+    position: relative;
+    width: 97%;
+    border: 1px solid black;
+    box-shadow: 2px 5px 19px black;
+    padding: 2px;
+    margin: 10px;
+    border-radius: 40px;
+    background-color: white;
+}
+
+video:hover, .sendWrapper:hover, .receiveWrapper:hover {
+    opacity: .6;
+}
+
+button {
+    width: 150px;
+    padding: 25px;
+    box-shadow: 2px 5px 19px black;
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+}
+
+button:hover {
+    color: black;
+    background-color: white;
+}
+
+.chatWrapper {
+    position: absolute;
+    top: 750px;
+    align-content: center;
+    text-align: center;
+    left: 19%;
+}
+
+.chatWrapper > div {
+    display: inline-block;
+    padding: 25px;
+}
+
+.chatWrapper > div > input, .chatWrapper > div > button {
+    display: inline-block;
+}
+
+#msgWrapper {
+    display: block;
+}
+
+input {
+    border: 1px solid black;
+    box-shadow: 2px 5px 19px black;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    outline: none;
+    width: 250px;
+    padding: 25px;
+    text-align: left;
+}
+
+input:hover {
+    opacity: 0.5;
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    background-color: transparent;
-    width: 100%;
-    font-family: 'Source Code Pro', monospace;
+    top: 1860px;
     font-weight: 500;
     font-size: 24px;
-    color: black;
-    border: 1px solid black;
+    border-top: 1px solid black;
+    box-shadow: 2px 5px 19px black;
+    z-index: 999;
+    border-radius: 2px;
+    height: 300px;
 }
 
-footer > ul > li > a {
+footer > ul {
+    top: 25%;
+    width: 65%;
+    left: 23%;
+    position: relative;
+}
+
+footer > ul > li > a, footer > ul > li {
     text-decoration: none;
+    display: inline-block;
+    padding: 5px;
+    font-family: 'Lato', monospace;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 18px;
+    color: black;
+}
+
+footer > ul > li > a:hover {
+    color: gray;
+    opacity: .6;
+}
+
+footer > ul > li {
+    width: 30%;
 }
